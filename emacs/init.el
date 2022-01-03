@@ -8,7 +8,7 @@
 (menu-bar-mode -1)
 
 ;; hightlight the current line
-(global-hl-line-mode +1)
+(global-hl-line-mode 1)
 
 (setq visible-bell t)
 
@@ -97,8 +97,9 @@
    "t" '(:ignore t :which-key "toggles")
    "tt" '(counsel-load-theme :which-key "choose theme")))
 
-;; make ESc quit prompts
-(global-set-key (kbd "<escape>") 'keyboard-escape-quit)
+(use-package auto-complete
+  :ensure t
+  :init (progn (ac-config-default) (global-auto-complete-mode t)))
 
 ;; make j - left, k - up, l - down, ; - right
 ;; with C for chars and rows
@@ -112,7 +113,10 @@
 (global-set-key (kbd "M-l") 'forward-paragraph)
 (global-set-key (kbd "M-k") 'backward-paragraph)
 ;; make C-f go to end of line
+(global-set-key (kbd "C-a") 'beginning-of-line)
 (global-set-key (kbd "C-f") 'end-of-line)
+(global-set-key (kbd "M-a") 'beginning-of-buffer)
+(global-set-key (kbd "M-f") 'end-of-buffer)
 
 ;; delete the current line
 (global-set-key (kbd "C-d") 'kill-line)
@@ -134,16 +138,15 @@
 (custom-set-variables
  '(initial-frame-alist (quote ((fullscreen . maximized)))))
 
+(setq-default c-basic-offset 4
+                        tab-width 4
+                        indent-tabs-mode t)
+
 ;; make tab 4 spaces in text mode
 (setq-default indent-tabs-mode nil)
 (setq-default tab-width 4)
-
-;; for python mode needs this
-(add-hook 'python-mode-hook
-      (lambda ()
-        (setq indent-tabs-mode t)
-        (setq tab-width 4)
-        (setq python-indent-offset 4)))
-
+(setq indent-line-function 'insert-tab)
+;; (setq c-basic-offset 'tab-width)
 ;; make a right split for start
 (split-window-right)
+
