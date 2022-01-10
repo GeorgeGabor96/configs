@@ -119,9 +119,9 @@
 (global-set-key (kbd "M-f") 'end-of-buffer)
 
 ;; delete the current line
-(global-set-key (kbd "C-d") 'kill-line)
+(global-set-key (kbd "C-d") 'kill-word)
+(global-set-key (kbd "C-S-d") 'kill-line)
 (global-set-key (kbd "M-d") 'kill-whole-line)
-(global-set-key (kbd "C-S-d") 'kill-word)
 
 ;; make C-w switch between windows
 (global-set-key (kbd "C-w") 'other-window)
@@ -140,7 +140,7 @@
 
 (setq-default c-basic-offset 4
                         tab-width 4
-                        indent-tabs-mode t)
+                        indent-tabs-mode nil)
 
 ;; make tab 4 spaces in text mode
 (setq-default indent-tabs-mode nil)
@@ -150,3 +150,7 @@
 ;; make a right split for start
 (split-window-right)
 
+(defun python-key-bindings ()
+  (local-set-key (kbd "C-d") 'kill-word)
+  (local-set-key (kbd "C-j") 'backward-word))
+(add-hook 'python-mode-hook 'python-key-bindings)
