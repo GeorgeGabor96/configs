@@ -1,0 +1,45 @@
+{
+    "workbench.colorTheme": "Default Dark+",
+
+    "breadcrumbs.enabled": false,
+
+    "editor.fontSize": 14,
+    "editor.wordWrap": "on",
+    "editor.lineNumbers": "relative",
+    "editor.minimap.enabled": false,
+    "editor.hover.enabled": true,
+    "editor.renderIndentGuides": false,
+
+    "explorer.compactFolders": false,
+
+    "files.trimTrailingWhitespace": true,
+
+    "workbench.statusBar.visible": true,
+    "workbench.editor.showTabs": true,
+    "workbench.list.keyboardNavigation": "simple",
+    "workbench.list.automaticKeyboardNavigation": false,
+
+    "explorer.confirmDragAndDrop": false,
+    "extensions.ignoreRecommendations": true,
+
+    "terminal.integrated.defaultProfile.windows": "Command Prompt",
+
+    "todohighlight.isEnable": true,
+    "todohighlight.keywords": [
+        {
+            "text": "TODO:",
+            "color": "red",
+            "backgroundColor": "rgba(0,0,0,0)"
+        },
+        {
+            "text": "HACK:",
+            "color": "#ff6600",
+            "backgroundColor": "rgba(0,0,0,0)"
+        },
+        {
+            "text": "NOTE:",
+            "color": "green",
+            "backgroundColor": "rgba(0,0,0,0)"
+        }
+    ],
+}
